@@ -20,12 +20,12 @@ while 1:
         if ly(ip) > ly(min(pos, key=lambda x: ly(x[0]))[0]):
             if abs(nps - ip)<0.0001:
                 nps *= i+1
-            pos[i][1] *= 1 - (6-i)
+            pos[i][1] *= 1 - (2-i)
             pos[i][1]+= pos[i][1]-(min(pos, key=lambda x: ly(x[0]))[1])/5
             pos[i][0]= nps+(pos[i][0]-(min(pos, key=lambda x: ly(x[0]))[0])/5)
             
         else:
-            if nps == ip:
+            if abs(nps - ip)<0.0001:
                 print(time()-start_time,ip)
                 b=1
         pos[i][0] *= 1-(6-i)**2
